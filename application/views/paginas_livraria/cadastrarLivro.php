@@ -15,7 +15,7 @@
 			Categoria:
 			<select name="categoria">
 				<option>Categoria 1</option>
-				<option>Categoria 2</option>
+				<option>Animacao</option>
 			</select><br><br>
 
 			Status:
