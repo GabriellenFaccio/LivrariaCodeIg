@@ -7,29 +7,26 @@
 	<div id="container">
 		<form action="cadastrarNovoLivro" method="POST">
 			Titulo:
-			<input type="text" name="titulo"><br><br>
+			<input type="text" name="liv_titulo" id="liv_titulo" placeholder="Ex: José F. F."><br><br>
 
 			Autor:
-			<input type="text" name="autor"><br><br>
+			<input type="text" name="liv_autor" id="liv_autor" placeholder="Ex: Desconhecido"><br><br>
 
 			Categoria:
-			<select name="categoria">
+			<select name="liv_categoria" id="liv_categoria">
 				<option>Categoria 1</option>
 				<option>Animacao</option>
 			</select><br><br>
 
 			Status:
-			<select name="status">
+			<select name="liv_status" id="liv_status">
 				<option>Disponivel</option>
 				<option>Emprestado</option>
 				<option>Manutenção</option>
 			</select><br><br>
 
-			Data de Emprestimo:
-			<input type="text" name="data_emp"><br><br>
-
 			Num. de Paginas:
-			<input type="text" name="num_pag"><br><br>
+			<input type="text" name="liv_num_pag" id="liv_num_pag" placeholder=""><br><br>
 
 			Num. de Edição:
 			<input type="text" name="num_edi"><br><br>
