@@ -16,8 +16,8 @@
 
  		Status:
  		<select name="cat_status" id="cat_status">
- 			<option>Ativada</option>
- 			<option>Desativada</option>
+ 			<option value="Ativada">Ativada</option>
+ 			<option value="Desativada">Desativada</option>
  		</select>
  		<br><br>
 
