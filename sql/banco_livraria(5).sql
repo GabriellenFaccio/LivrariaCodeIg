@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 13-Maio-2020 às 15:23
+-- Tempo de geração: 13-Maio-2020 às 15:51
 -- Versão do servidor: 10.4.11-MariaDB
 -- versão do PHP: 7.4.3
 
@@ -47,7 +47,9 @@ INSERT INTO `categoria` (`cat_id`, `cat_nome`, `cat_status`, `cat_data_criacao`,
 (3, 'Terror', '1', '2020-06-05 16:15:01', '2020-06-05 16:15:03', NULL),
 (4, 'Romance', '1', '2020-06-05 16:15:01', '2020-06-05 16:15:03', NULL),
 (11, 'Ficcao', '1', '2020-05-13 10:20:52', '2020-05-13 10:20:52', 'categoria de ficcao'),
-(12, 'Loops', '0', '2020-05-13 10:21:21', '2020-05-13 10:21:21', 'categoria de loops');
+(12, 'Loops', '0', '2020-05-13 10:21:21', '2020-05-13 10:21:21', 'categoria de loops'),
+(13, 'Aventura', '1', '2020-05-13 10:34:34', '2020-05-13 10:34:34', 'categoria aventura'),
+(17, 'Culinaria', '1', '2020-05-13 10:48:07', '2020-05-13 10:48:07', 'Livros de comida');
 
 -- --------------------------------------------------------
 
@@ -102,13 +104,13 @@ ALTER TABLE `livro`
 -- AUTO_INCREMENT de tabela `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de tabela `livro`
 --
 ALTER TABLE `livro`
-  MODIFY `liv_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `liv_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restrições para despejos de tabelas
