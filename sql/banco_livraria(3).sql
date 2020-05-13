@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 12-Maio-2020 às 21:04
+-- Tempo de geração: 13-Maio-2020 às 14:44
 -- Versão do servidor: 10.4.11-MariaDB
 -- versão do PHP: 7.4.3
 
@@ -37,6 +37,16 @@ CREATE TABLE `categoria` (
   `cat_descricao` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Extraindo dados da tabela `categoria`
+--
+
+INSERT INTO `categoria` (`cat_id`, `cat_nome`, `cat_status`, `cat_data_criacao`, `cat_data_modificacao`, `cat_descricao`) VALUES
+(1, 'Animacao', 'Ativada', '2020-06-05 16:15:01', '2020-06-05 16:15:03', NULL),
+(2, 'Suspense', 'Ativada', '2020-06-05 16:15:01', '2020-06-05 16:15:03', NULL),
+(3, 'Terror', 'Ativada', '2020-06-05 16:15:01', '2020-06-05 16:15:03', NULL),
+(4, 'Romance', 'Ativada', '2020-06-05 16:15:01', '2020-06-05 16:15:03', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -56,6 +66,14 @@ CREATE TABLE `livro` (
   `liv_data_modificacao` datetime DEFAULT NULL,
   `liv_descricao` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `livro`
+--
+
+INSERT INTO `livro` (`liv_id`, `cat_id`, `liv_titulo`, `liv_autor`, `liv_status`, `liv_num_pagina`, `liv_num_edicao`, `liv_editora`, `liv_data_criacao`, `liv_data_modificacao`, `liv_descricao`) VALUES
+(3, 1, 'João e Maria', 'Maria', 'Disponivel', 100, 1, 'TreePaper', NULL, NULL, 'Um livro infantil para momentos e rondas noturnas'),
+(4, 3, 'A floresta Escura', 'Joao Lice', 'Emprestado', 200, 2, 'TreePaper', NULL, NULL, 'Um livro que fará voce tremer.');
 
 --
 -- Índices para tabelas despejadas
@@ -82,13 +100,13 @@ ALTER TABLE `livro`
 -- AUTO_INCREMENT de tabela `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `livro`
 --
 ALTER TABLE `livro`
-  MODIFY `liv_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `liv_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restrições para despejos de tabelas

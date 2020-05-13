@@ -3,9 +3,7 @@
 <head>
 	<title>Cadastrar Categoria</title>
 	<style type="text/css">
-		input{
-			padding-right: 10px;
-		}
+		input{ padding-right: 10px;}
 	</style>
 </head>
 <body>
@@ -21,12 +19,8 @@
  		</select>
  		<br><br>
 
- 		Data de Criacao:
- 		<input type="datetime-local" name="cat_data_criacao" id="cat_data_criacao" placeholder="AAAA/MM/DD  HH:MM:SS">
- 		<br><br>
-
- 		Data de Modificação:
- 		<input type="datetime-local" name="cat_data_modificacao" id="cat_data_modificacao" placeholder="AAAA/MM/DD  HH:MM:SS">
+ 		Descrição:
+ 		<input type="textarea" name="cat_descricao" id="cat_descricao" placeholder="Descricao">
  		<br><br>
 
  		<input type="submit" name="btnCadastraCat" id="btnCadastraCat" value="Inserir">
