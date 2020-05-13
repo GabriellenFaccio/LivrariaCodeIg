@@ -17,7 +17,7 @@
 			Categoria:
 			<select name="cat_id" id="cat_id"> 
 			<?php foreach($nomeCategoria as $row){ 
-				 echo "<option value=".$row->cat_id.">".$row->cat_nome."<option>";
+				 echo "<option value=".$row->cat_id.">".$row->cat_nome."</option>";
 			} ?>
 			</select><br><br>
 
