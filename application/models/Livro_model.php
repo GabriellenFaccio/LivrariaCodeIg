@@ -7,5 +7,10 @@
 		public function insertLivros($arrayDados){
 			$insert = $this->db->insert('livro', $arrayDados);
 		}
+
+		public function listarLivros(){
+			$select = $this->db->get('livro');
+			return $select->result();
+		}
 	}
 ?>

@@ -15,6 +15,11 @@
 			$this->load->view('paginas_livraria/cadastrarLivro', $arrayDados);
 		}
 
+		public function buscarLivro(){
+			$arrayBanco['dadosLivros'] = $this->Livro_model->listarLivros();
+			$this->load->view('paginas_livraria/buscarLivro', $arrayBanco);
+		}
+
 		public function cadastrarNovoLivro(){
 			$arrayDados['liv_titulo'] 			 = $this->input->post('liv_titulo');
 			$arrayDados['liv_autor']			 = $this->input->post('liv_autor');

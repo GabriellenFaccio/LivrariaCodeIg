@@ -23,9 +23,9 @@
 
 			Status:
 			<select name="liv_status" id="liv_status">
-				<option>Disponivel</option>
-				<option>Emprestado</option>
-				<option>Manutenção</option>
+				<option value="Disponivel">Disponivel</option>
+				<option value="Emprestado">Emprestado</option>
+				<option value="Manutenção">Manutenção</option>
 			</select><br><br>
 
 			Num. de Paginas:
