@@ -14,13 +14,13 @@
 
  		Status:
  		<select name="cat_status" id="cat_status">
- 			<option value="Ativada">Ativada</option>
- 			<option value="Desativada">Desativada</option>
+ 			<option value="1">Ativada</option>
+ 			<option value="0">Desativada</option>
  		</select>
  		<br><br>
 
- 		Descrição:
- 		<input type="textarea" name="cat_descricao" id="cat_descricao" placeholder="Descricao">
+ 		Descrição:<br>
+ 		<textarea name="cat_descricao" id="cat_descricao" rows="4" cols="30"></textarea>
  		<br><br>
 
  		<input type="submit" name="btnCadastraCat" id="btnCadastraCat" value="Inserir">

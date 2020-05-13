@@ -13,8 +13,9 @@
 		}
 
 		public function pesquisaCategoria(){
-			$selectCat = $this->db->get('categoria');
-			return $selectCat->result();
+			$this->db->where('cat_status', "1");
+			$select = $this->db->get('categoria');
+			return $select->result();
 		}
 	}
 ?>

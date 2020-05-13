@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 13-Maio-2020 às 14:44
+-- Tempo de geração: 13-Maio-2020 às 15:23
 -- Versão do servidor: 10.4.11-MariaDB
 -- versão do PHP: 7.4.3
 
@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `categoria` (
   `cat_id` int(11) NOT NULL,
   `cat_nome` varchar(255) DEFAULT NULL,
-  `cat_status` varchar(255) DEFAULT NULL,
+  `cat_status` char(1) NOT NULL,
   `cat_data_criacao` datetime DEFAULT NULL,
   `cat_data_modificacao` datetime DEFAULT NULL,
   `cat_descricao` varchar(255) DEFAULT NULL
@@ -42,10 +42,12 @@ CREATE TABLE `categoria` (
 --
 
 INSERT INTO `categoria` (`cat_id`, `cat_nome`, `cat_status`, `cat_data_criacao`, `cat_data_modificacao`, `cat_descricao`) VALUES
-(1, 'Animacao', 'Ativada', '2020-06-05 16:15:01', '2020-06-05 16:15:03', NULL),
-(2, 'Suspense', 'Ativada', '2020-06-05 16:15:01', '2020-06-05 16:15:03', NULL),
-(3, 'Terror', 'Ativada', '2020-06-05 16:15:01', '2020-06-05 16:15:03', NULL),
-(4, 'Romance', 'Ativada', '2020-06-05 16:15:01', '2020-06-05 16:15:03', NULL);
+(1, 'Animacao', '1', '2020-06-05 16:15:01', '2020-06-05 16:15:03', NULL),
+(2, 'Suspense', '0', '2020-06-05 16:15:01', '2020-06-05 16:15:03', NULL),
+(3, 'Terror', '1', '2020-06-05 16:15:01', '2020-06-05 16:15:03', NULL),
+(4, 'Romance', '1', '2020-06-05 16:15:01', '2020-06-05 16:15:03', NULL),
+(11, 'Ficcao', '1', '2020-05-13 10:20:52', '2020-05-13 10:20:52', 'categoria de ficcao'),
+(12, 'Loops', '0', '2020-05-13 10:21:21', '2020-05-13 10:21:21', 'categoria de loops');
 
 -- --------------------------------------------------------
 
@@ -100,7 +102,7 @@ ALTER TABLE `livro`
 -- AUTO_INCREMENT de tabela `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `livro`

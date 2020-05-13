@@ -37,9 +37,9 @@
 			Editora:
 			<input type="text" name="liv_editora" id="liv_editora"><br><br>
 
-			Descrição:
-			<input type="text" name="liv_descricao" id="liv_descricao"><br><br>
-
+			Descrição:<br>
+			<textarea name="liv_descricao" id="liv_descricao" rows="4" cols="50">
+			</textarea><br><br>
 
 			<input type="submit" name="btnCadastrar" value="Cadastrar">
 		</form>
