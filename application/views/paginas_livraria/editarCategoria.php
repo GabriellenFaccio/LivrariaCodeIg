@@ -4,23 +4,29 @@
 	<title>Editar Categoria</title>
 </head>
 <body>
-	<h3>Visualizar o contato </h3>
-	<table> 
+	<h3>Editar Categoria </h3>
+	<table border="1">
 		<tr>
-			<td>
-				<form action="buscarCategoria" method="POST">
-					<?php foreach($catSelect as $row): ?>
-						Id : 		   <?php echo $row->cat_id;?><br><br>
-						Nome : 		   <?php echo $row->cat_nome;?><br><br>
-						Status : 	   <?php echo $row->cat_status;?><br><br>
-						Data Criacao : <?php echo $row->cat_data_criacao;?><br><br>
-						Data Modifi. : <?php echo $row->cat_data_modificacao;?><br><br>
-						Descricao :    <?php echo $row->cat_descricao;?><br><br>
-					<?php endforeach; ?>
-					<button><a href='<?=base_url("Categorias/buscarCategoria")?>'>Voltar</a></button>
-				</form>
-			</td>
-			<td>
+			<td>Id</td>
+			<td>Nome</td>
+			<td>Status</td>
+			<td>Data Criacao</td>
+			<td>Data Modifi.</td>
+			<td>Descricao</td>
+		</tr>
+		<tr>
+			<?php foreach($catSelect as $row): ?>
+				<td><?php echo $row->cat_id;?></td>
+				<td><?php echo $row->cat_nome;?></td>
+				<td><?php echo $row->cat_status;?></td>
+				<td><?php echo $row->cat_data_criacao;?></td>
+				<td><?php echo $row->cat_data_modificacao;?></td>
+				<td><?php echo $row->cat_descricao;?></td>
+			<?php endforeach; ?>
+		</tr>
+	</table>
+	<button><a href='<?=base_url("Categorias/buscarCategoria")?>'>Voltar</a></button><br><br><br>
+
 				<form action='<?=base_url("Categorias/salvarUpdateCat/$row->cat_id")?>' method="POST">
 					<?php foreach($catSelect as $row): ?>
 						Id : 		   <?php echo $row->cat_id;?><br><br>
@@ -31,7 +37,7 @@
 						Status :
 						<select name="cat_status" id="cat_status">
 							<option value="1">Ativar</option>
-							<option value="1">Desativar</option>
+							<option value="0">Desativar</option>
 						</select><br><br>
 
 						Descricao :    
@@ -39,9 +45,5 @@
 					<?php endforeach; ?>
 					<input type="submit" name="btnSalvar" id="btnSalvar" value="Salvar">
 				</form>
-			</td>
-			
-		</tr>
-	</table>
 </body>
 </html>

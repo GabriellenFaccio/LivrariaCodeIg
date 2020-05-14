@@ -17,6 +17,10 @@
 
 		public function buscarLivro(){
 			$arrayBanco['dadosLivros'] = $this->Livro_model->listarLivros();
+
+			foreach ($arrayBanco['dadosLivros'] as $key => $value) {
+				$arrayBanco['dadosLivros'][$key]->cat_id = $this->Categoria_model->buscarNomeCategoria($value->cat_id)->cat_nome;
+			}
 			$this->load->view('paginas_livraria/buscarLivro', $arrayBanco);
 		}
 

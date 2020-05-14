@@ -15,8 +15,7 @@
 		}
 
 		public function listarCategoria(){
-			$select = $this->db->get('categoria');
-			return $select->result();
+			return $this->db->select(array('cat_id','cat_nome','cat_status','cat_descricao'))->get('categoria')->result();
 		}
 
 		public function getOneTable($idSelect){
@@ -33,6 +32,20 @@
 		public function deleteOneCategoria($id){
 			$this->db->where('cat_id', $id);
 			$this->db->delete('categoria');
+		}
+
+		public function selectLivrosCat($idCategoria){
+			$this->db->where('$cat_id', $idCategoria);
+			$select = $this->db->select('livro');
+			return $select->result();
+		}
+
+		public function buscarNomeCategoria($idCategoria){
+			return $this->db->where('cat_id', $idCategoria)->select(array('cat_nome'))->get('categoria')->result()[0];
+		}
+
+		public function getAllMenosCatExcluira($idCategoria){
+			return $this->db->where('cat_id <>', $idCategoria)->select(array('cat_id','cat_nome'))->get('categoria')->result();
 		}
 	}
 ?>
