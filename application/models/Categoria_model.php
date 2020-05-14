@@ -30,8 +30,7 @@
 		}
 
 		public function deleteOneCategoria($id){
-			$this->db->where('cat_id', $id);
-			$this->db->delete('categoria');
+			$this->db->where('cat_id', $id)->delete('categoria');
 		}
 
 		public function selectLivrosCat($idCategoria){

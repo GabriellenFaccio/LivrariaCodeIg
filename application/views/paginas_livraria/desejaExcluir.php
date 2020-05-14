@@ -4,28 +4,22 @@
 	<title>Deseja Excluir</title>
 </head>
 <body>
-	<form action='excluirCategoria/$row->cat_id' method="POST">
+	<form action='<?=base_url("Categorias/excluirCategoria/$idCategoria")?>' method="POST">
 		
-			
-		Deseja realmente Excluir ?<br><br>
+		Deseja realmente Excluir?<br><br>
 
-		** Selecione uma nova categoria para que os livros se adequem.<br><br>
+		** você terá que transfirir os livros dessa categoria para outra.<br><br>
 
 		Categoria:
-		<select name="newCategoria" id="newCategoria"> 
-			<?php foreach($categorias as $row){ 
-				// arrumar o model para ele devolver um unica categoria
-				 echo "<option value=".$row->cat_id.">".$row->cat_nome."</option>";
-				 
-			} ?>
-		</select><br><br>
-		<input type="hidden" name="catAntiga" id="catAntiga" value="<?php echo $row->cat_id;?>">
+		<select name="newCategoria" id="newCategoria">
+			<?php foreach($allCatMenosUma as $row){
+				echo "<option value= \"".$row->cat_id."\">".$row->cat_nome."</option>";
+			}?>
+		</select><br><br><br>
 
-		
-		<input type="submit" name="btnSalvar" id="btnSalvar" value="Salvar">
-		<button><a href='<?=base_url("Categorias/excluirCategoria/$row->cat_id")?>'>Teste</a></button>
-
+		<input type="submit" name="btnConfirmar" id="btnConfirmar" value="Confirmar">
 		<button><a href='<?=base_url("Categorias/buscarCategoria")?>'>Voltar</a></button>
+		
 	</form>
 </body>
 </html>

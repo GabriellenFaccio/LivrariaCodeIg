@@ -41,32 +41,33 @@
 
 		public function desejaExcluirCat($idCategoria){
 			// usar o id para que esse id de Categoria nao venha.
-			$arrayBanco['dadosCategoria'] = $this->Categoria_model->listarCategoria();
-			$arrayBanco['idCategoriaExcluira'] = $idCategoria;
-			$this->load->view('paginas_livraria/desejaExcluir', $arrayBanco);
+			// verificar se tem algum livro nessa categoria, se nao apagar
+			$arrayBanco['livrosNaCatExcluira'] = $this->Livro_model->getLivrosNaCat($idCategoria);
+
+			if ($arrayBanco['livrosNaCatExcluira'] == NULL) {
+				$this->Categoria_model->deleteOneCategoria($idCategoria);
+				echo "Excluiu?";
+				die;
+			}else{
+				$arrayBanco['allCatMenosUma'] = $this->Categoria_model->getAllMenosCatExcluira($idCategoria);
+				$arrayBanco['idCategoria'] = $idCategoria;
+				$this->load->view('paginas_livraria/desejaExcluir', $arrayBanco);
+				//$this->Livro_model->updateLivrosNovaCat($arrayBanco);
+			}
 		}
 
 		public function excluirCategoria($idCategoria){
 			$newCategoria = $this->input->post('newCategoria');
 
-			$arrayBanco['livrosCategoriaAnt'] = $this->Livro_model->getLivrosNaCat($idCategoria);
+			$arrayBanco['livrosCategoriaAnt'] = $this->Livro_model->getCategoriaLiv($idCategoria);
 
 			foreach ($arrayBanco['livrosCategoriaAnt'] as $key => $value){
 				$arrayBanco['livrosCategoriaAnt'][$key]->cat_id = $newCategoria;
 			}
-
-			echo "<pre>";
-			print_r($arrayBanco['livrosCategoriaAnt']);
-			die;
-
-			/*foreach ($arrayBanco['dadosLivros'] as $key => $value) {
-				$arrayBanco['dadosLivros'][$key]->cat_id = $this->Categoria_model->buscarNomeCategoria($value->cat_id)->cat_nome;
-			}*/
-			//$this->Categoria_model->updateLivrosNewCat($newCategoria);
-			// update tem que estar no controller dos livros
-
-			//$this->Categoria_model->deleteOneCategoria($idCategoria);
-			redirect('welcome');
+			$this->Livro_model->updateLivrosNovaCat($newCategoria, $idCategoria);
+			$this->Categoria_model->deleteOneCategoria($idCategoria);
+		
+			redirect('Categorias/buscarCategoria');
 		}
 
 		public function salvarUpdateCat($idCategoria){
@@ -76,15 +77,15 @@
 			$arrayDadosUp['cat_data_modificacao'] = date('Y/m/d H:i:s');
 
 			if ($arrayDadosUp['cat_status'] == 0) {
-				$outrasCa['categorias'] = $this->Categoria_model->getAllMenosCatExcluira($idCategoria);
-				$this->load->view('paginas_livraria/desejaExcluir', $outrasCa);
+				// Preciso fazer os livros receberem o status indisponivel
+				$arrayLivrosComCat = $this->Livro_model->getLivrosNaCat($idCategoria);
+				$this->Livro_model->livrosIndisponiveis($arrayLivrosComCat, $idCategoria);
+				redirect('Categorias/buscarCategoria');
 			}else{
 				// fazer o tratamento de indisponivel no controller
 				$this->Categoria_model->updateOneCategoria($idCategoria, $arrayDadosUp);
 				redirect('Categorias/buscarCategoria');
 			}
-
-			
 		}
 	}
 ?>

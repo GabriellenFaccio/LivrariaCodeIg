@@ -15,5 +15,17 @@
 		public function getLivrosNaCat($idCategoria){
 			return $this->db->where('cat_id', $idCategoria)->select(array('liv_id','cat_id'))->get('livro')->result();
 		}
+
+		public function getCategoriaLiv($idCategoria){
+			return $this->db->where('cat_id', $idCategoria)->select(array('cat_id'))->get('livro')->result();
+		}
+
+		public function livrosIndisponiveis($arrayLivros, $idCategoria){
+			$this->db->where('cat_id', $idCategoria)->update('livro', array('liv_status' => "Indisponivel"));
+		}
+
+		public function updateLivrosNovaCat($categoriaNova, $categoriaAnt){
+			$this->db->where('cat_id', $categoriaAnt)->update('livro', array('cat_id' => $categoriaNova));
+		}
 	}
 ?>

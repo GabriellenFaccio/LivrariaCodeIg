@@ -39,5 +39,6 @@
 			$this->Livro_model->insertLivros($arrayDados);
 			redirect('Livros/novoLivro');
 		}	
+
 	}
 ?>
