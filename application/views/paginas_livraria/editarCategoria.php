@@ -28,6 +28,7 @@
 	<button><a href='<?=base_url("Categorias/buscarCategoria")?>'>Voltar</a></button><br><br><br>
 
 				<form action='<?=base_url("Categorias/salvarUpdateCat/$row->cat_id")?>' method="POST">
+					
 					<?php foreach($catSelect as $row): ?>
 						Id : 		   <?php echo $row->cat_id;?><br><br>
 

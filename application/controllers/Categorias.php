@@ -78,8 +78,10 @@
 
 			if ($arrayDadosUp['cat_status'] == 0) {
 				// Preciso fazer os livros receberem o status indisponivel
+
 				$arrayLivrosComCat = $this->Livro_model->getLivrosNaCat($idCategoria);
 				$this->Livro_model->livrosIndisponiveis($arrayLivrosComCat, $idCategoria);
+				$this->Categoria_model->updateOneCategoria($idCategoria, $arrayDadosUp);
 				redirect('Categorias/buscarCategoria');
 			}else{
 				// fazer o tratamento de indisponivel no controller
