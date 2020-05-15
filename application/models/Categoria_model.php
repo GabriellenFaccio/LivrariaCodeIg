@@ -46,5 +46,9 @@
 		public function getAllMenosCatExcluira($idCategoria){
 			return $this->db->where('cat_id <>', $idCategoria)->select(array('cat_id','cat_nome'))->get('categoria')->result();
 		}
+
+		public function getCatAtivas(){
+			return $this->db->where('cat_status', 1)->select(array('cat_nome'))->get('categoria')->result();
+		}
 	}
 ?>
