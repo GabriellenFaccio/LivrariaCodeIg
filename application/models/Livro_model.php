@@ -37,12 +37,12 @@
 		}
 
 		public function deleteLivro($idLivro){
-			$this->db->where('liv_status', "Emprestado");
-			$this->db->where('liv_id', $idLivro)->delete('livro');
+			$this->db->where('liv_id', $idLivro);
+			$this->db->where('liv_status <>', "Emprestado")->delete('livro');
 		}
 
 		public function selectLivroEmp($idLivro){
-			return $this->db_where('liv_id', $idLivro)->select(array('liv_status'))->get('livro')->result();
+			return $this->db->where('liv_id', $idLivro)->select(array('liv_status'))->get('livro')->result();
 		}
 	}
 

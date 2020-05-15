@@ -41,21 +41,15 @@
 		}	
 
 		public function excluirLivros($idLivro){
-			$livroEmp = $this->Livro_model->selectLivroEmp($idLivro);
-			
 
-			if($livroEmp == "Emprestado"){
-				redirect('paginas_livraria/buscarLivro');
-			}else{
-				$this->Livro_model->deleteLivro($idLivro);
-				redirect('paginas_livraria/buscarLivro');
-			}
-
+			$array['teste'] = $this->Livro_model->deleteLivro($idLivro);
+			redirect('Livros/buscarLivro');
 		}
 
 		public function editarLivros($idLivro){
 			$tableBanco['livSelect'] = $this->Livro_model->getOneTable($idLivro);
 			$tableBanco['nomeCategoria'] = $this->Categoria_model->getCatAtivas();
+
 			$this->load->view('paginas_livraria/editarLivro', $tableBanco);
 		}
 

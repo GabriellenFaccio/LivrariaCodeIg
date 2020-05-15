@@ -55,8 +55,9 @@
 					<option value="Manutenção">Manutenção</option>
 			</select><br><br>
 
+
 			Num. de Paginas:
-			<input type="text" name="liv_num_pagina" id="liv_num_pagina" value="<?php echo $row->liv_num_pagina ?>"><br><br>
+			<input type="text" name="liv_num_pagina" id="liv_num_pagina" value="<?php echo $row->liv_num_pagina?>"><br><br>
 
 			Num. de Edição:
 			<input type="text" name="liv_num_edi" id="liv_num_edi" value="<?php echo $row->liv_num_edicao ?>"><br><br>
