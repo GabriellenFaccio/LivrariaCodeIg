@@ -69,7 +69,8 @@
 				<?php echo $row->liv_descricao ?>
 			</textarea><br><br>
 
-			<input type="submit" name="btnSalvar" id="btnSalvar" value="Salvar">	
+			<input type="submit" name="btnSalvar" id="btnSalvar" value="Salvar">
+					
 		</form>
 </body>
 </html>

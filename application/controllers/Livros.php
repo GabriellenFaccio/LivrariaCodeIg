@@ -41,8 +41,16 @@
 		}	
 
 		public function excluirLivros($idLivro){
-			$this->Livro_model->deleteLivro($idLivro);
-			redirect('paginas_livraria/buscarLivro');
+			$livroEmp = $this->Livro_model->selectLivroEmp($idLivro);
+			
+
+			if($livroEmp == "Emprestado"){
+				redirect('paginas_livraria/buscarLivro');
+			}else{
+				$this->Livro_model->deleteLivro($idLivro);
+				redirect('paginas_livraria/buscarLivro');
+			}
+
 		}
 
 		public function editarLivros($idLivro){
