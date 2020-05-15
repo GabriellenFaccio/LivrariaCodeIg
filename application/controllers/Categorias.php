@@ -15,6 +15,14 @@
 
 		public function buscarCategoria(){
 			$arrayBanco['dadosCategoria'] = $this->Categoria_model->listarCategoria();
+
+			foreach ($arrayBanco['dadosCategoria'] as $key => $value) {
+				if ($arrayBanco['dadosCategoria'][$key]->cat_status == 1) {
+					$arrayBanco['dadosCategoria'][$key]->cat_status = "Ativada";
+				}elseif ($arrayBanco['dadosCategoria'][$key]->cat_status == 0) {
+					$arrayBanco['dadosCategoria'][$key]->cat_status = "Desativada";
+				}
+			}
 			$this->load->view('paginas_livraria/buscarCategoria', $arrayBanco);
 		}
 
@@ -46,8 +54,7 @@
 
 			if ($arrayBanco['livrosNaCatExcluira'] == NULL) {
 				$this->Categoria_model->deleteOneCategoria($idCategoria);
-				echo "Excluiu?";
-				die;
+				redirect('paginas_livraria/buscarCategoria');
 			}else{
 				$arrayBanco['allCatMenosUma'] = $this->Categoria_model->getAllMenosCatExcluira($idCategoria);
 				$arrayBanco['idCategoria'] = $idCategoria;
@@ -78,7 +85,6 @@
 
 			if ($arrayDadosUp['cat_status'] == 0) {
 				// Preciso fazer os livros receberem o status indisponivel
-
 				$arrayLivrosComCat = $this->Livro_model->getLivrosNaCat($idCategoria);
 				$this->Livro_model->livrosIndisponiveis($arrayLivrosComCat, $idCategoria);
 				$this->Categoria_model->updateOneCategoria($idCategoria, $arrayDadosUp);

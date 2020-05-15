@@ -37,7 +37,7 @@
 			$arrayDados['liv_data_modificacao']  = date('Y/m/d H:i:s');
 
 			$this->Livro_model->insertLivros($arrayDados);
-			redirect('Livros/novoLivro');
+			redirect('Livros/buscarLivro');
 		}	
 
 	}

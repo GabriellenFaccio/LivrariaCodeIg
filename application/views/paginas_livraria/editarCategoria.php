@@ -28,7 +28,7 @@
 	<button><a href='<?=base_url("Categorias/buscarCategoria")?>'>Voltar</a></button><br><br><br>
 
 				<form action='<?=base_url("Categorias/salvarUpdateCat/$row->cat_id")?>' method="POST">
-					
+
 					<?php foreach($catSelect as $row): ?>
 						Id : 		   <?php echo $row->cat_id;?><br><br>
 
@@ -37,8 +37,8 @@
 
 						Status :
 						<select name="cat_status" id="cat_status">
-							<option value="1">Ativar</option>
-							<option value="0">Desativar</option>
+							<option value="1" <?=($row->cat_status == 1)? "selected=\"true\"" : "n"?>>Ativar</option>
+							<option value="0" <?=($row->cat_status == 0)? "selected=\"true\"" : "n"?>>Desativar</option>
 						</select><br><br>
 
 						Descricao :    
