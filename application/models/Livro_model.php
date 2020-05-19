@@ -17,7 +17,7 @@
 		}
 
 		public function getOneTable($idLivro){
-			return $this->db->where('liv_id', $idLivro)->select(array('liv_id','liv_titulo','cat_id','liv_status','liv_num_pagina','liv_num_edicao','liv_autor','liv_editora','liv_descricao'))->get('livro')->result();
+			return $this->db->where('liv_id', $idLivro)->select(array('liv_id','liv_titulo','cat_id','liv_status','liv_num_pagina','liv_num_edicao','liv_autor','liv_editora','liv_descricao'))->get('livro')->result()[0];
 		}
 
 		public function getCategoriaLiv($idCategoria){
@@ -43,6 +43,10 @@
 
 		public function selectLivroEmp($idLivro){
 			return $this->db->where('liv_id', $idLivro)->select(array('liv_status'))->get('livro')->result();
+		}
+
+		public function updateOneLivro($id, $array){
+			$this->db->where('liv_id', $id)->update('livro', $array);
 		}
 	}
 

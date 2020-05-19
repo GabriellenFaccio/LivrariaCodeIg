@@ -16,29 +16,27 @@
 			<td><h4>Editora</h4></td>
 			<td><h4>Descricao</h4></td>
 		</tr>
-
-		<?php foreach($livSelect as $row): ?>
+		
 		<tr>
-			<td> <?php echo $row->cat_id ?> </td>
-			<td> <?php echo $row->liv_titulo ?> </td>
-			<td> <?php echo $row->liv_status ?> </td>
-			<td> <?php echo $row->liv_num_pagina ?> </td>
-			<td> <?php echo $row->liv_num_edicao ?> </td>
-			<td> <?php echo $row->liv_autor ?> </td>
-			<td> <?php echo $row->liv_editora ?> </td>
-			<td> <?php echo $row->liv_descricao ?> </td>
-			<?php endforeach; ?>
+			<td> <?php echo $livSelect->cat_id ?> </td>
+			<td> <?php echo $livSelect->liv_titulo ?> </td>
+			<td> <?php echo $livSelect->liv_status ?> </td>
+			<td> <?php echo $livSelect->liv_num_pagina ?> </td>
+			<td> <?php echo $livSelect->liv_num_edicao ?> </td>
+			<td> <?php echo $livSelect->liv_autor ?> </td>
+			<td> <?php echo $livSelect->liv_editora ?> </td>
+			<td> <?php echo $livSelect->liv_descricao ?> </td>
 		</tr>
 	</table>
 	<button><a href='<?=base_url("Livros/buscarLivro")?>'>Voltar</a></button><br><br><br>
 
-		<form action='<?=base_url("Livros/salvarUpdateLiv/$row->liv_id")?>' method="POST">
+		<form action='<?=base_url("Livros/salvarUpdateLiv/$livSelect->liv_id")?>' method="POST">
 
 			Titulo:
-			<input type="text" name="liv_titulo" id="liv_titulo" value="<?php echo $row->liv_titulo ?>"><br><br>
+			<input type="text" name="liv_titulo" id="liv_titulo" value="<?php echo $livSelect->liv_titulo ?>"><br><br>
 
 			Autor:
-			<input type="text" name="liv_autor" id="liv_autor" value="<?php echo $row->liv_autor ?>"><br><br>
+			<input type="text" name="liv_autor" id="liv_autor" value="<?php echo $livSelect->liv_autor ?>"><br><br>
 
 
 			Categoria:
@@ -57,17 +55,17 @@
 
 
 			Num. de Paginas:
-			<input type="text" name="liv_num_pagina" id="liv_num_pagina" value="<?php echo $row->liv_num_pagina?>"><br><br>
+			<input type="text" name="liv_num_pagina" id="liv_num_pagina" value="<?php echo $livSelect->liv_num_pagina?>"><br><br>
 
 			Num. de Edição:
-			<input type="text" name="liv_num_edi" id="liv_num_edi" value="<?php echo $row->liv_num_edicao ?>"><br><br>
+			<input type="text" name="liv_num_edicao" id="liv_num_edicao" value="<?php echo $livSelect->liv_num_edicao ?>"><br><br>
 
 			Editora:
-			<input type="text" name="liv_editora" id="liv_editora" value="<?php echo $row->liv_editora ?>"><br><br>
+			<input type="text" name="liv_editora" id="liv_editora" value="<?php echo $livSelect->liv_editora ?>"><br><br>
 
 			Descrição:<br>
 			<textarea name="liv_descricao" id="liv_descricao" rows="4" cols="50">
-				<?php echo $row->liv_descricao ?>
+				<?php echo $livSelect->liv_descricao ?>
 			</textarea><br><br>
 
 			<input type="submit" name="btnSalvar" id="btnSalvar" value="Salvar">

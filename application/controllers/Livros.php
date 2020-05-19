@@ -49,21 +49,22 @@
 		public function editarLivros($idLivro){
 			$tableBanco['livSelect'] = $this->Livro_model->getOneTable($idLivro);
 			$tableBanco['nomeCategoria'] = $this->Categoria_model->getCatAtivas();
-
 			$this->load->view('paginas_livraria/editarLivro', $tableBanco);
 		}
 
 		public function salvarUpdateLiv($idLivro){
 			$arrayDadosUp['liv_titulo'] = $this->input->post('liv_titulo');
 			$arrayDadosUp['liv_autor'] = $this->input->post('liv_autor');
-			$arrayDadosUp['liv_categoria'] = $this->input->post('liv_categoria');
+			$arrayDadosUp['cat_id'] = $this->input->post('cat_id');
 			$arrayDadosUp['liv_status'] = $this->input->post('liv_status');
 			$arrayDadosUp['liv_num_pagina'] = $this->input->post('liv_num_pagina');
-			$arrayDadosUp['liv_num_edi'] = $this->input->post('liv_num_edi');
+			$arrayDadosUp['liv_num_edicao'] = $this->input->post('liv_num_edicao');
 			$arrayDadosUp['liv_editora'] = $this->input->post('liv_editora');
 			$arrayDadosUp['liv_descricao'] = $this->input->post('liv_descricao');
 			$arrayDadosUp['liv_data_modificacao'] = date('Y/m/d H:i:s');
 
+			$this->Livro_model->updateOneLivro($idLivro, $arrayDadosUp);
+			redirect('Livros/buscarLivro');
 
 		}
 

@@ -48,7 +48,7 @@
 		}
 
 		public function getCatAtivas(){
-			return $this->db->where('cat_status', 1)->select(array('cat_nome'))->get('categoria')->result();
+			return $this->db->where('cat_status', 1)->select(array('cat_nome','cat_id'))->get('categoria')->result();
 		}
 	}
 ?>
