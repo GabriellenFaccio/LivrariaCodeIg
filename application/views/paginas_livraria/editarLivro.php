@@ -42,15 +42,15 @@
 			Categoria:
 			<select name="cat_id" id="cat_id"> 
 			<?php foreach($nomeCategoria as $row){ 
-				 echo "<option value=".$row->cat_id.">".$row->cat_nome."</option>";
-			} ?>
+				echo "<option value='$row->cat_id' ".($livSelect->cat_id == $row->cat_id? 'selected="true"':"").">".$row->cat_nome."</option>";
+			}?>
 			</select><br><br>
 
 			Status:
 			<select name="liv_status" id="liv_status">
-					<option value="Disponivel">Disponivel</option>
-					<option value="Emprestado">Emprestado</option>
-					<option value="Manutenção">Manutenção</option>
+					<option value="Disponivel" <?=($livSelect->liv_status == "Disponivel"? 'selected="true"' : "")?>>Disponivel</option>
+					<option value="Emprestado" <?=($livSelect->liv_status == "Emprestado"? 'selected="true"' : "")?>>Emprestado</option>
+					<option value="Manutenção" <?=($livSelect->liv_status == "Manutenção"? 'selected="true"' : "")?>>Manutenção</option>
 			</select><br><br>
 
 

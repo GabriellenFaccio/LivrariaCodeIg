@@ -37,8 +37,8 @@
 
 						Status :
 						<select name="cat_status" id="cat_status">
-							<option value="1" <?=($row->cat_status == 1)? "selected=\"true\"" : "n"?>>Ativar</option>
-							<option value="0" <?=($row->cat_status == 0)? "selected=\"true\"" : "n"?>>Desativar</option>
+							<option value="1" <?=($row->cat_status == 1? 'selected="true"': "")?>>Ativar</option>
+							<option value="0" <?=($row->cat_status == 0? 'selected="true"': "")?>>Desativar</option>
 						</select><br><br>
 
 						Descricao :    
