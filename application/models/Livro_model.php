@@ -48,6 +48,10 @@
 		public function updateOneLivro($id, $array){
 			$this->db->where('liv_id', $id)->update('livro', $array);
 		}
+
+		public function getAllLivrosCat(){
+			return $this->db->select(array('liv_id','cat_id','liv_status','liv_titulo'))->get('livro')->result();
+		}
 	}
 
 ?>

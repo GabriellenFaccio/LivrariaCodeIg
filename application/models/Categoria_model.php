@@ -50,5 +50,9 @@
 		public function getCatAtivas(){
 			return $this->db->where('cat_status', 1)->select(array('cat_nome','cat_id'))->get('categoria')->result();
 		}
+
+		public function getAllCat(){
+			return $this->db->select(array('cat_id','cat_nome'))->get('categoria')->result();
+		}
 	}
 ?>

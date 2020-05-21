@@ -65,7 +65,11 @@
 
 			$this->Livro_model->updateOneLivro($idLivro, $arrayDadosUp);
 			redirect('Livros/buscarLivro');
+		}
 
+		public function visualizarLivro($idLivro){
+			$arrayLivro['livroVis'] = $this->Livro_model->getOneTable($idLivro);
+			$this->load->view('paginas_livraria/visualizarLivro', $arrayLivro);
 		}
 
 	}
